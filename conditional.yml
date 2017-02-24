@@ -1,0 +1,7 @@
+---
+ - hosts: all 
+   become: true 
+   tasks:
+    - name: osfamily 
+      command: yum install -y httpd 
+      when: ansible_os_family == "RedHat"
