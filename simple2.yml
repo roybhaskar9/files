@@ -1,0 +1,8 @@
+---
+ - hosts: all 
+   become: true 
+   tasks:
+    - name: Install Apache2 
+      apt: pkg=apache2 state=installed update_cache=true
+    - name: Stop Apache2 Service 
+      service: name=apache2 state=stopped
