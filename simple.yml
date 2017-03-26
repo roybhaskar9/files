@@ -2,4 +2,5 @@
  - hosts: all 
    become: true 
    tasks:
-    - name: Install Git apt: pkg=git state=installed update_cache=true
+    - name: Install Git 
+      apt: pkg=git state=installed update_cache=true
