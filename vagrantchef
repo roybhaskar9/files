@@ -1,21 +1,24 @@
 Vagrant.configure(2) do |config|
 
- config.vm.define "vm1" do |vm1|
-   vm1.vm.box = "ubuntu/trusty64"
-   vm1.vm.hostname = "chefserver.example.com"
-   vm1.vm.provider :virtualbox do |vb|
+ config.vm.define "chefserver" do |chefserver|
+   chefserver.vm.box = "ubuntu/trusty64"
+   chefserver.vm.hostname = "chefserver.example.com"
+   chefserver.vm.network "private_network", ip: "192.168.33.10"
+   chefserver.vm.provider :virtualbox do |vb|
       vb.memory = "4096"
       vb.cpus = "2"
     end
  end
 
- config.vm.define "vm2" do |vm2|
-   vm2.vm.box = "ubuntu/trusty64"
-   vm2.vm.hostname = "chefworkstation.example.com"
+ config.vm.define "chefworkstation" do |chefworkstation|
+   chefworkstation.vm.box = "ubuntu/trusty64"
+   chefworkstation.vm.hostname = "chefworkstation.example.com"
+   chefworkstation.vm.network "private_network", ip: "192.168.33.20"
  end
  
-  config.vm.define "vm2" do |vm2|
-   vm2.vm.box = "ubuntu/trusty64"
-   vm2.vm.hostname = "chefnode.example.com"
+  config.vm.define "chefnode" do |chefnode|
+   chefnode.vm.box = "ubuntu/trusty64"
+   chefnode.vm.hostname = "chefnode.example.com"
+   chefnode.vm.network "private_network", ip: "192.168.33.30"
  end
 end
