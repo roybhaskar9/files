@@ -11,13 +11,13 @@ spec:
         app: webnginx
     spec:
     containers: 
-      - name: "webpod8085"
-        image: "nginx"
-        ports: 
-          - containerPort: 80
-            hostPort: 8085
-      - name: "webpod8086"
-        image: "nginx"
-        ports: 
-          - containerPort: 80
-            hostPort: 8086
+    - name: "webpod8085"
+      image: "nginx"
+      ports: 
+      - containerPort: 80
+        hostPort: 8085
+    - name: "webpod8086"
+      image: "nginx"
+      ports: 
+      - containerPort: 80
+        hostPort: 8086
