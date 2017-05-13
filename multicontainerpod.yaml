@@ -5,15 +5,15 @@ desiredState:
   manifest: 
     id: "webpod"
     containers: 
-      - name: "webpod80"
+      - name: "webpod8085"
         image: "nginx"
         ports: 
           - containerPort: 80
-            hostPort: 80
-      - name: "webpod8080"
+            hostPort: 8085
+      - name: "webpod8086"
         image: "nginx"
         ports: 
           - containerPort: 80
-            hostPort: 8080
+            hostPort: 8086
 labels: 
   name: "web"
