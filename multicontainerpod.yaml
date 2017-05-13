@@ -1,9 +1,15 @@
 id: "webpod"
 kind: "Pod"
-apiVersion: "v1beta1"
-desiredState: 
-  manifest: 
-    id: "webpod"
+apiVersion: "v1"
+metadata:
+  name: nginx-multideployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webnginx
+    spec:
     containers: 
       - name: "webpod8085"
         image: "nginx"
@@ -15,5 +21,3 @@ desiredState:
         ports: 
           - containerPort: 80
             hostPort: 8086
-labels: 
-  name: "web"
