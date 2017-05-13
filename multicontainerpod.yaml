@@ -1,0 +1,19 @@
+id: "webpod"
+kind: "Pod"
+apiVersion: "v1beta1"
+desiredState: 
+  manifest: 
+    id: "webpod"
+    containers: 
+      - name: "webpod80"
+        image: "nginx"
+        ports: 
+          - containerPort: 80
+            hostPort: 80
+      - name: "webpod8080"
+        image: "nginx"
+        ports: 
+          - containerPort: 80
+            hostPort: 8080
+labels: 
+  name: "web"
