@@ -2,8 +2,6 @@
 
 choco install -y wget nano consolez notepad2
 
-choco install -y git -params '"/GitAndUnixToolsOnPath /WindowsTerminal"
-
-choco install -y virtualbox --version 5.0.40
+choco install -y virtualbox
 
 choco install -y vagrant
