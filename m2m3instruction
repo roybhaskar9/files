@@ -1,0 +1,84 @@
+#Then on one of the rest of the 2 servers: Lets call it Minion 2: Do as follows:
+yum -y install nano wget tree
+
+setenforce 0
+
+systemctl stop firewalld
+
+systemctl disable firewalld
+
+yum -y install ntp
+
+systemctl start ntpd
+
+systemctl enable ntpd
+
+yum -y install flannel kubernetes
+nano /etc/sysconfig/flanneld
+# Make sure the content is compliant to as mentioned below
+FLANNEL_ETCD="http://masterserverip:2379"
+#Save and Close the file with Ctrl+X
+nano /etc/kubernetes/config
+# Make sure the content is compliant to as mentioned below
+KUBE_MASTER="--master=http://masterserverip:8080"
+#Save and Close the file with Ctrl+X
+nano /etc/kubernetes/kubelet
+# Make sure the content is compliant to as mentioned below
+KUBELET_ADDRESS="--address=0.0.0.0"
+KUBELET_PORT="--port=10250"
+# change the hostname to this host’s IP address
+KUBELET_HOSTNAME="--hostname_override=minion2ip"
+KUBELET_API_SERVER="--api_servers=http://masterserverip:8080"
+KUBELET_ARGS=""
+#Save and Close the file with Ctrl+X
+systemctl start kube-proxy
+systemctl enable kube-proxy
+systemctl start kubelet
+systemctl enable kubelet
+systemctl restart docker
+systemctl enable docker
+systemctl start flanneld
+systemctl enable flanneld
+#Then on the last server: Lets call it Minion 3: Do as follows:
+yum -y install nano wget tree
+
+setenforce 0
+
+systemctl stop firewalld
+
+systemctl disable firewalld
+
+yum -y install ntp
+
+systemctl start ntpd
+
+systemctl enable ntpd
+
+yum -y install flannel kubernetes
+nano /etc/sysconfig/flanneld
+# Make sure the content is compliant to as mentioned below
+FLANNEL_ETCD="http://masterserverip:2379"
+#Save and Close the file with Ctrl+X
+nano /etc/kubernetes/config
+# Make sure the content is compliant to as mentioned below
+KUBE_MASTER="--master=http://masterserverip:8080"
+#Save and Close the file with Ctrl+X
+nano /etc/kubernetes/kubelet
+# Make sure the content is compliant to as mentioned below
+KUBELET_ADDRESS="--address=0.0.0.0"
+KUBELET_PORT="--port=10250"
+# change the hostname to this host’s IP address
+KUBELET_HOSTNAME="--hostname_override=minion3ip"
+KUBELET_API_SERVER="--api_servers=http://masterserverip:8080"
+KUBELET_ARGS=""
+#Save and Close the file with Ctrl+X
+systemctl start kube-proxy
+systemctl enable kube-proxy
+systemctl start kubelet
+systemctl enable kubelet
+systemctl restart docker
+systemctl enable docker
+systemctl start flanneld
+systemctl enable flanneld
+#Now go to master server and type
+kubectl get nodes
