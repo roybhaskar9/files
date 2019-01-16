@@ -9,3 +9,11 @@ choco install -y virtualbox
 choco install -y vagrant
 
 choco install -y git --params "/GitAndUnixToolsOnPath /WindowsTerminal"
+
+bash
+
+cd ~
+
+wget https://raw.githubusercontent.com/roybhaskar9/files/master/setupvagrant.sh
+
+bash setupvagrant.sh
