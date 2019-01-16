@@ -7,3 +7,5 @@ choco install -y consolez cmder conemu
 choco install -y virtualbox
 
 choco install -y vagrant
+
+choco install -y git --params "/GitAndUnixToolsOnPath /WindowsTerminal"
