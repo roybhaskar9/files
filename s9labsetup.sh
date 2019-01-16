@@ -10,6 +10,8 @@ choco install -y vagrant
 
 choco install -y git --params "/GitAndUnixToolsOnPath /WindowsTerminal"
 
+refreshenv
+
 bash
 
 cd ~
