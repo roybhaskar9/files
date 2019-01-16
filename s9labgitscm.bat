@@ -1,1 +1,1 @@
-choco install -y git /GitAndUnixToolsOnPath /WindowsTerminal
+choco install -y git --params "/GitAndUnixToolsOnPath /WindowsTerminal"
