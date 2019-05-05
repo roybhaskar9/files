@@ -16,6 +16,8 @@ bash
 
 cd ~
 
-wget https://raw.githubusercontent.com/roybhaskar9/files/master/setupvagrant.sh
+curl -sSL https://raw.githubusercontent.com/roybhaskar9/files/master/setupvagrant.sh | bash
 
-bash setupvagrant.sh
+curl -sSL https://gitlab.com/roybhaskar9/devops/raw/master/Lab/LaptopLab/Windows/version10/labfolders.sh | bash
+
+
